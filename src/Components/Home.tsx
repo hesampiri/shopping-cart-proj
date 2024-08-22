@@ -21,12 +21,12 @@ export function Home() {
 
   useEffect(() => {
     setisloading(true);
-    ApiCaller("products",'',filter)
+    ApiCaller("products", "", filter)
       .then((res) => {
         const data = res.data;
         setlist(data);
         console.log(data);
-        
+
         setisloading(false);
       })
       .catch((err) => {
@@ -38,7 +38,7 @@ export function Home() {
     ApiCaller("products", "categories").then((res) => {
       setcategories(res.data);
     });
-  },[]);
+  }, []);
 
   return (
     <>
@@ -46,14 +46,19 @@ export function Home() {
         <div>
           <TemporaryDrawer />
           <div className="bg-cyan-900">
-            <button className="text-white px-5 py-3 hover:bg-cyan-600 ">all</button>
+            <button
+              className="text-white px-5 py-3 hover:bg-cyan-600 "
+              onClick={() => setfilter(undefined)}
+            >
+              all
+            </button>
             {categories?.map((item, idx) => (
               <button
                 key={idx}
                 className="text-white p-3 hover:bg-cyan-600"
                 onClick={(e) => {
                   const buttonValue = (e.target as HTMLButtonElement).innerText;
-                  setfilter(buttonValue)
+                  setfilter(buttonValue);
                 }}
               >
                 {item}
@@ -74,9 +79,9 @@ export function Home() {
               );
             })}
           </div>
-          <div className="bg-cyan-900 h-[200px] mt-3 flex justify-center items-center capitalize text-white">
+          {/* <div className="bg-cyan-900 h-[200px] flex justify-center items-center capitalize text-white mt-3">
             <p>random footer stuff</p>
-          </div>
+          </div> */}
         </div>
       ) : (
         <div className="w-full h-screen flex justify-center items-center">

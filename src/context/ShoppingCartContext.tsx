@@ -11,7 +11,7 @@ type ShoppingCartProviderProps = {
 };
 
 type ShoppingCarttype = {
-  getItemQuantitiy: (id: number ) => number;
+  getItemQuantitiy: (id: number) => number;
   increaseItemQuantity: (id: number) => void;
   decreaseItemQuantity: (id: number) => void;
   removefromCart: (id: number) => void;
@@ -26,9 +26,10 @@ export function useShoppingCart() {
 }
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
-
-  
-  const [cartItems, setcartItems] = uselocalStorage<CartItem[]>( 'shopping-cart' , [] );
+  const [cartItems, setcartItems] = uselocalStorage<CartItem[]>(
+    "shopping-cart",
+    []
+  );
 
   const cartQuantity = cartItems.reduce(
     (totalQuantity, item) => item.quantity + totalQuantity,

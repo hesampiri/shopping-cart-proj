@@ -17,24 +17,29 @@ export default function TemporaryDrawer() {
 
   const DrawerList = (
     <>
-    <Box sx={{ width:{sm:350} }} role="presentation" onClick={toggleDrawer(true)}>
+      <Box
+        sx={{ width: { sm: 350 } }}
+        role="presentation"
+        onClick={toggleDrawer(true)}
+      >
         <div>
           <h1 className="text-center py-2 font-medium text-xl">Your Cart</h1>
           {cartItems.map((item) => {
             return <Cartitem key={item.id} item={item} />;
           })}
         </div>
-    </Box>
-        <div className="p-3 font-medium text-xl mt-auto border">
-          <h1>Total Price : 
-            {cartItems.reduce((total, cartItem) => {
-              const item = shopdata.find((item) => item.id === cartItem.id);
-               const totalprice = total + (item?.price || 0) * cartItem.quantity;
-              return Number(totalprice.toFixed(2)) ;
-            }, 0)}
-            $
-          </h1>
-        </div>
+      </Box>
+      <div className="p-3 font-medium text-xl mt-auto border">
+        <h1>
+          Total Price :
+          {cartItems.reduce((total, cartItem) => {
+            const item = shopdata.find((item) => item.id === cartItem.id);
+            const totalprice = total + (item?.price || 0) * cartItem.quantity;
+            return Number(totalprice.toFixed(2));
+          }, 0)}
+          $
+        </h1>
+      </div>
     </>
   );
 
