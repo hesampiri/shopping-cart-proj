@@ -17,7 +17,7 @@ export default function TemporaryDrawer() {
 
   const DrawerList = (
     <>
-    <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width:{sm:350} }} role="presentation" onClick={toggleDrawer(true)}>
         <div>
           <h1 className="text-center py-2 font-medium text-xl">Your Cart</h1>
           {cartItems.map((item) => {

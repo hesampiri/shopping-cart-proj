@@ -11,7 +11,7 @@ type ShoppingCartProviderProps = {
 };
 
 type ShoppingCarttype = {
-  getItemQuantitiy: (id: number) => number;
+  getItemQuantitiy: (id: number ) => number;
   increaseItemQuantity: (id: number) => void;
   decreaseItemQuantity: (id: number) => void;
   removefromCart: (id: number) => void;
