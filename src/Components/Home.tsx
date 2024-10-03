@@ -63,8 +63,7 @@ export function Home() {
               </button>
             ))}
           </div>
-          {/* <div className=" flex flex-wrap justify-center gap-3 p-3"> */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 p-3 mx-auto px-4 sm:px-8 "> 
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-3 gap-y-5 p-3 mx-auto px-4 sm:px-8 "> 
             {list?.map((item, idx) => {
               return (
                 <MediaCard

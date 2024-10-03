@@ -43,7 +43,7 @@ export default function MediaCard({
           component="div"
           fontSize={"madium"}
         >
-          <p className="line-clamp-1 ">{title}</p>
+          <h1 className="line-clamp-1 text-lg font-medium">{title}</h1>
         </Typography>
         <Typography variant="body2" color="text.secondary" fontSize="small">
           <p className="line-clamp-2">{description}</p>
