@@ -25,8 +25,6 @@ export function Home() {
       .then((res) => {
         const data = res.data;
         setlist(data);
-        console.log(data);
-
         setisloading(false);
       })
       .catch((err) => {
@@ -41,10 +39,10 @@ export function Home() {
   }, []);
 
   return (
-    <>
+    <section>
       {!isloading ? (
         <div>
-          <TemporaryDrawer />
+          <TemporaryDrawer data={list} />
           <div className="bg-cyan-900">
             <button
               className="text-white px-5 py-3 hover:bg-cyan-600 "
@@ -65,7 +63,8 @@ export function Home() {
               </button>
             ))}
           </div>
-          <div className="bg-blue-100 flex flex-wrap justify-center gap-3 p-3">
+          {/* <div className=" flex flex-wrap justify-center gap-3 p-3"> */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 p-3 mx-auto px-4 sm:px-8 "> 
             {list?.map((item, idx) => {
               return (
                 <MediaCard
@@ -79,15 +78,12 @@ export function Home() {
               );
             })}
           </div>
-          {/* <div className="bg-cyan-900 h-[200px] flex justify-center items-center capitalize text-white mt-3">
-            <p>random footer stuff</p>
-          </div> */}
         </div>
       ) : (
         <div className="w-full h-screen flex justify-center items-center">
           <CircularIndeterminate />
         </div>
       )}
-    </>
+    </section>
   );
 }

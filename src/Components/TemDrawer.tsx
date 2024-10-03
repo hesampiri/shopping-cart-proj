@@ -5,9 +5,20 @@ import Button from "@mui/material/Button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Cartitem } from "./Cartitem";
 import { useShoppingCart } from "../context/ShoppingCartContext";
-import shopdata from "../Data/data.json";
 
-export default function TemporaryDrawer() {
+type datatype = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+};
+type tempProps = {
+  data: datatype[] | undefined;
+};
+
+export default function TemporaryDrawer({ data }: tempProps) {
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -18,7 +29,7 @@ export default function TemporaryDrawer() {
   const DrawerList = (
     <>
       <Box
-        sx={{ width: { sm: 350 } }}
+        sx={{ width: { md: 350, width: 250 } }}
         role="presentation"
         onClick={toggleDrawer(true)}
       >
@@ -33,7 +44,7 @@ export default function TemporaryDrawer() {
         <h1>
           Total Price :
           {cartItems.reduce((total, cartItem) => {
-            const item = shopdata.find((item) => item.id === cartItem.id);
+            const item = data?.find((item) => item.id === cartItem.id);
             const totalprice = total + (item?.price || 0) * cartItem.quantity;
             return Number(totalprice.toFixed(2));
           }, 0)}

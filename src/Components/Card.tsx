@@ -1,8 +1,8 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { CardMedia } from "@mui/material";
 
 type datatype = {
   id: number;
@@ -30,8 +30,8 @@ export default function MediaCard({
   const itemQuantity = getItemQuantitiy(id);
 
   return (
-    <Card sx={{ width: 300, padding: 1 }}>
-      <CardMedia sx={{ height: 200 }} image={image} title={title} />
+    <Card style={{ padding: 10 }}>
+      <CardMedia image={image} style={{height:200}}/>
       <CardContent style={{ height: 120, padding: 5 }}>
         <Typography
           gutterBottom
@@ -39,7 +39,7 @@ export default function MediaCard({
           component="div"
           fontSize={"madium"}
         >
-          <p className="line-clamp-1">{title}</p>
+          <p className="line-clamp-1 ">{title}</p>
         </Typography>
         <Typography variant="body2" color="text.secondary" fontSize="small">
           <p className="line-clamp-2">{description}</p>
@@ -48,7 +48,7 @@ export default function MediaCard({
       </CardContent>
       {itemQuantity === 0 ? (
         <button
-          className="bg-cyan-700 text-white w-full rounded p-1"
+          className="bg-cyan-900 text-white w-full rounded p-1"
           onClick={() => increaseItemQuantity(id)}
         >
           Buy
@@ -57,14 +57,14 @@ export default function MediaCard({
         <div className="flex justify-around items-center w-full px-4">
           <div className="flex items-center w-full">
             <button
-              className="bg-cyan-700 text-white px-2 rounded"
+              className="bg-cyan-900 text-white px-2 rounded"
               onClick={() => increaseItemQuantity(id)}
             >
               +
             </button>
             <p className="w-9 text-center">{itemQuantity}</p>
             <button
-              className="bg-cyan-700 text-white px-2 rounded"
+              className="bg-cyan-900 text-white px-2 rounded"
               onClick={() => decreaseItemQuantity(id)}
             >
               -
