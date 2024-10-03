@@ -2,7 +2,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useShoppingCart } from "../context/ShoppingCartContext";
-import { CardMedia } from "@mui/material";
+import CardMedia from "@mui/material/CardMedia";
 
 type datatype = {
   id: number;
@@ -31,7 +31,11 @@ export default function MediaCard({
 
   return (
     <Card style={{ padding: 10 }}>
-      <CardMedia image={image} style={{height:200}}/>
+      <CardMedia
+        component="img"
+        image={image}
+        style={{ height: 200, objectFit: "contain" }}
+      />
       <CardContent style={{ height: 120, padding: 5 }}>
         <Typography
           gutterBottom
